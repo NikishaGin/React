@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {Accordion} from "./Components/Accordion/Accordion";
+import {Rating} from "./Components/Rating/Rating";
+import {OnOff} from "./Components/OnOff/OnOff";
+import {UncontrolledAccordion} from "./Components/Accordion/UncontrolledAccordion";
+import {action} from "@storybook/addon-actions";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    let [acc, setACC] = useState<boolean>(false)
+
+    const onClickCallback = action("IT")
+
+    return (
+        <div className="App">
+            <PageTitle title={"This is App"}/>
+            {/*<Rating value={3}/>*/}
+            <Accordion titleValue={"Menu"}
+                       acc={acc}
+                       setACC={() => setACC(!acc)}
+                       items={[
+                           {title: "Nikita", value: 1},
+                           {title: "Dima", value: 2},
+                           {title: "Misha", value: 3},
+                       ]}
+                       onClick={(id)=>{alert("user")}}
+            />
+            {/*<Accordion titleValue={"Users"} setACC={()=>setACC(!acc)}/>*/}
+            <OnOff/>
+            <OnOff/>
+            <OnOff/>
+            <UncontrolledAccordion titleValue={'Menu'}/>
+            <UncontrolledAccordion titleValue={'User'}/>
+            <Rating/>
+        </div>
+    );
+}
+
+
+type pageTitleType = {
+    title: string
+}
+
+const PageTitle = (props: pageTitleType) => {
+    return (
+        <>
+            <h3>{props.title}</h3>
+        </>
+    )
 }
 
 export default App;
