@@ -52,7 +52,7 @@ export const Checkbox = () => {
     )
 }
 
-export const Select = () => {
+export const SelectOption = () => {
     let [select, setSelect] = useState <string | undefined>("2")
     const onChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setSelect(event.currentTarget.value)

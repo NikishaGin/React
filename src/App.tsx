@@ -14,9 +14,9 @@ function App() {
 
     return (
         <div className="App">
-            <PageTitle title={"This is App"}/>
+     {/*       <PageTitle title={"This is App"}/>*/}
             {/*<Rating value={3}/>*/}
-            <Accordion titleValue={"Menu"}
+ {/*           <Accordion titleValue={"Menu"}
                        acc={acc}
                        setACC={() => setACC(!acc)}
                        items={[
@@ -25,11 +25,11 @@ function App() {
                            {title: "Misha", value: 3},
                        ]}
                        onClick={(id)=>{alert("user")}}
-            />
+            />*/}
             {/*<Accordion titleValue={"Users"} setACC={()=>setACC(!acc)}/>*/}
+{/*            <OnOff/>
             <OnOff/>
-            <OnOff/>
-            <OnOff/>
+            <OnOff/>*/}
             <UncontrolledAccordion titleValue={'Menu'}/>
             <UncontrolledAccordion titleValue={'User'}/>
             <Rating/>
