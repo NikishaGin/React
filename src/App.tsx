@@ -5,6 +5,7 @@ import {Rating} from "./Components/Rating/Rating";
 import {OnOff} from "./Components/OnOff/OnOff";
 import {UncontrolledAccordion} from "./Components/Accordion/UncontrolledAccordion";
 import {action} from "@storybook/addon-actions";
+import {EffectTitle} from "./Components/EffectTitle/EffectTitle";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
 
     return (
         <div className="App">
+            <EffectTitle/>
      {/*       <PageTitle title={"This is App"}/>*/}
             {/*<Rating value={3}/>*/}
  {/*           <Accordion titleValue={"Menu"}
@@ -30,9 +32,9 @@ function App() {
 {/*            <OnOff/>
             <OnOff/>
             <OnOff/>*/}
-            <UncontrolledAccordion titleValue={'Menu'}/>
+{/*            <UncontrolledAccordion titleValue={'Menu'}/>
             <UncontrolledAccordion titleValue={'User'}/>
-            <Rating/>
+            <Rating/>*/}
         </div>
     );
 }

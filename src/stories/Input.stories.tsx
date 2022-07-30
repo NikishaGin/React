@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useEffect, useRef, useState} from "react";
 
 
 export default {
@@ -12,25 +12,49 @@ export const ControlledInput = () => <input value={"it"}/>
 
 export const TrackValueOfInput = () => {
     let [value, setValue] = useState('')
-    return <><input onChange={(event)=>{
+    return <><input type={"number"} onChange={(event)=>{
         const actualValue = event.currentTarget.value
         setValue(actualValue)
     }}/> - {value}</>
 }
 
 export const GetValue = () => {
-    let [value, setValue] = useState('')
+    let [value, setValue] = useState(0)
 
     return (
         <div>
-            <input />
-            <button onClick={()=>{setValue('UseRef')}}>save</button> - actual value: {value}
+            <input type={"number"}  />
+            <button onClick={()=>{setValue(9)}}>save</button> - actual value: {value}
         </div>
 
         )
-
 }
 
+export const Counter = () => {
+    let [value,setValue] = useState(0)
+    let [value2,setValue2] = useState(0)
+    const inputRef = useRef<HTMLInputElement>(null)
+    const inputRef2 = useRef<HTMLInputElement>(null)
+
+
+
+
+    const set = () => {
+        const el = inputRef.current as HTMLInputElement
+        const el2 = inputRef2.current as HTMLInputElement
+        setValue(el.valueAsNumber)
+        setValue2(el2.valueAsNumber)
+    }
+
+
+    return (
+        <div>
+            <input type={"number"} ref={inputRef}/>
+            <input type={"number"} ref={inputRef2}/>
+            <button onClick={set}>SET</button> - {value} - {value2}
+        </div>
+    )
+}
 
 export const UseInput = () => {
     let [value, setValue] = useState('')
@@ -65,4 +89,24 @@ export const SelectOption = () => {
             <option value={3}>USA</option>
         </select>
     )
+}
+
+export const Tim = () => {
+    let [counter, setCounter] = useState(1)
+
+    useEffect(()=>{
+        setInterval(()=>{
+            setCounter(t=>t+1)
+        },1000)
+    },[counter])
+
+    return <h3>Time - {counter}</h3>
+}
+
+
+export const TimeDate = () => {
+    const a = new Date()
+    return <>
+        {a}
+    </>
 }
